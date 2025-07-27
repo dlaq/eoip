@@ -1,0 +1,22 @@
+# ===================== eo.py 配置 =====================
+# 输入输出文件配置
+INPUT_FILE = "eo.txt"
+OUTPUT_FILE = "yes.txt"
+
+# IP检测配置
+TIMEOUT = 1  # 每个请求的超时时间，单位：秒
+MAX_WORKERS = 3  # 最大并发数
+TARGET_HOST = "eo-r2.afo.im"
+TOTAL = 50  # 总共需要多少个IP，如果结果大于该值则只保留前50个，否则全部保留
+
+# ===================== updatedns.py 配置 =====================
+# 华为云账号配置
+ACCESS_KEY_ID = ''
+ACCESS_KEY_SECRET = ''
+
+# DNS配置
+ZONE_NAME = ""
+RECORD_NAME = ""
+
+# Bark通知配置
+device_key = ""
