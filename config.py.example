@@ -6,7 +6,7 @@ OUTPUT_FILE = "yes.txt"
 # IP检测配置
 TIMEOUT = 1  # 每个请求的超时时间，单位：秒
 MAX_WORKERS = 3  # 最大并发数
-TARGET_HOST = "eo-r2.afo.im"
+TARGET_HOST = ""
 TOTAL = 50  # 总共需要多少个IP，如果结果大于该值则只保留前50个，否则全部保留
 
 # ===================== updatedns.py 配置 =====================

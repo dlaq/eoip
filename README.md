@@ -26,7 +26,13 @@ pip install -r requirements.txt
 
 ## 使用方法
 
-### 1. IP地址检测
+### 直接运行（IP 测速+DNS 更新）
+
+```bash
+python main.py
+```
+
+### 1. 手动运行 IP 检测
 
 1. 编辑 `eo.txt` 文件，添加需要检测的IP网段（CIDR格式）：
    ```
@@ -37,19 +43,20 @@ pip install -r requirements.txt
 
 2. 运行IP检测程序：
    ```bash
-   python main.py
+   python eo.py
    ```
 
 3. 程序会生成 `yes.txt` 文件，包含响应时间最快的50个有效IP地址。
 
 ### 2. DNS记录更新
 
-1. 配置 `updatedns.py` 中的以下参数：
-   - `access_key_id`：华为云账号AccessKey
-   - `access_key_secret`：华为云账号AccessKey Secret
-   - `device_key`：Bark通知服务的设备key
+1. 配置 `config.py` 中的以下参数：
+   - `TARGET_HOST`：目标主机地址
+   - `ACCESS_KEY_ID`：华为云账号AccessKey
+   - `ACCESS_KEY_SECRET`：华为云账号AccessKey Secret
    - `ZONE_NAME`：域名区域名称
    - `RECORD_NAME`：要更新的记录名称
+   - `device_key`：Bark通知服务的设备key
 
 2. 运行DNS更新程序：
    ```bash
