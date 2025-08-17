@@ -4,7 +4,6 @@ from pathlib import Path
 import concurrent.futures
 from config import INPUT_FILE, OUTPUT_FILE, TIMEOUT, MAX_WORKERS, TARGET_HOST, TOTAL
 
-
 def expand_ips(line):
     """解析IP或CIDR，返回IP列表"""
     try:
@@ -41,8 +40,9 @@ def check_ip(ip):
             status_code = output
             response_time = TIMEOUT + 2
         
-        if status_code == "404":
-            print(f"[+] {ip} ✅ ({response_time:.3f}s)")
+        # 只把 404 或 403 当作可达
+        if status_code == "404" or status_code == "403":
+            print(f"[+] {ip} ✅ ({response_time:.3f}s, HTTP {status_code})")
             return (ip, response_time)
         else:
             print(f"[-] {ip} ❌ (HTTP {status_code})")
